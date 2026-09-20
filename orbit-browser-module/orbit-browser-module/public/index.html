@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#080e1f" />
+  <title>Orbit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/browser.css" />
+
+  <script src="/scram/scramjet.all.js"></script>
+  <script src="/baremux/index.js"></script>
+  <script src="/uv/uv.bundle.js"></script>
+  <script src="/uv.config.js"></script>
+</head>
+<body>
+  <main class="browser-shell">
+    <header class="browser-topbar">
+      <div class="brand"><span>ORBIT</span></div>
+      <div class="topbar-spacer"></div>
+      <div class="status" id="status-pill">Ready</div>
+      <button class="icon-btn" id="fullscreen-btn" title="Fullscreen Orbit" aria-label="Fullscreen Orbit">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+      </button>
+      <button class="icon-btn" id="settings-btn" title="Orbit settings" aria-label="Orbit settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 4.6 15a1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3 1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8 1.6 1.6 0 0 0 1.5 1h.1a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg>
+      </button>
+    </header>
+
+    <section class="toolbar">
+      <div class="nav-buttons" aria-label="Navigation controls">
+        <button id="back-btn" title="Go back" aria-label="Go back">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        </button>
+        <button id="forward-btn" title="Go forward" aria-label="Go forward">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <button id="reload-btn" title="Refresh" aria-label="Refresh">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6v5h-5"/><path d="M18.5 9A7 7 0 1 0 19 15"/></svg>
+        </button>
+        <button id="home-btn" title="New tab" aria-label="New tab">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5M9.5 20v-6h5v6"/></svg>
+        </button>
+      </div>
+
+      <form id="address-form" class="address-wrap" autocomplete="off">
+        <span class="lock-dot" aria-hidden="true"></span>
+        <input id="address-input" type="text" placeholder="Search DuckDuckGo or enter a URL" spellcheck="false" aria-label="Address and search" />
+        <button type="submit" class="go-btn">Go</button>
+      </form>
+    </section>
+
+    <section id="start-page" class="start-page">
+      <div class="start-inner">
+        <div class="orbit-mark" aria-hidden="true">O</div>
+        <div class="orbit-wordmark">Orbit</div>
+        <div class="orbit-byline">by turnaway</div>
+        <p class="start-copy">Search privately with DuckDuckGo or jump straight to a site.</p>
+
+        <form id="start-search" class="start-search" autocomplete="off">
+          <svg class="start-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="start-input" type="text" placeholder="Search DuckDuckGo or type a URL" spellcheck="false" aria-label="Search DuckDuckGo or type a URL" />
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="quick-links" id="quick-links" aria-label="Quick links">
+          <button class="quick-link" data-url="https://discord.com/app">
+            <span class="quick-icon">D</span><span>Discord</span>
+          </button>
+          <button class="quick-link" data-url="https://www.instagram.com/">
+            <span class="quick-icon">IG</span><span>Instagram</span>
+          </button>
+          <button class="quick-link" data-url="https://www.tiktok.com/">
+            <span class="quick-icon">TT</span><span>TikTok</span>
+          </button>
+          <button class="quick-link" data-url="https://www.youtube.com/">
+            <span class="quick-icon">YT</span><span>YouTube</span>
+          </button>
+          <button class="quick-link" data-url="https://www.reddit.com/">
+            <span class="quick-icon">R</span><span>Reddit</span>
+          </button>
+          <button class="quick-link" data-url="https://open.spotify.com/">
+            <span class="quick-icon">S</span><span>Spotify</span>
+          </button>
+        </div>
+
+        <div class="newtab-footer">
+          <span>Engine: <strong id="engine-label">Scramjet</strong></span>
+          <span class="dot-sep">•</span>
+          <span>Transport: <strong id="transport-label">Epoxy</strong></span>
+        </div>
+
+        <div class="update-note" role="note">
+          <span class="update-kicker">Updates</span>
+          <span>Orbit — previously known as deltamathhelp.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="viewport" class="viewport" aria-label="Orbit browser viewport"></section>
+
+    <aside id="settings-panel" class="settings-panel" aria-hidden="true">
+      <div class="settings-head">
+        <div>
+          <h2>Orbit Settings</h2>
+          <p>Choose your proxy engine, transport, and search engine.</p>
+        </div>
+        <button id="settings-close" aria-label="Close settings">×</button>
+      </div>
+
+      <label class="setting-row">
+        <span><b>Proxy engine</b><small>Scramjet is the default. Ultraviolet is available as a compatibility fallback.</small></span>
+        <select id="engine-select">
+          <option value="scramjet">Scramjet</option>
+          <option value="ultraviolet">Ultraviolet</option>
+        </select>
+      </label>
+
+      <label class="setting-row">
+        <span><b>Transport</b><small>Choose Epoxy or libcurl over the Wisp connection.</small></span>
+        <select id="transport-select">
+          <option value="epoxy">Epoxy</option>
+          <option value="libcurl">libcurl</option>
+        </select>
+      </label>
+
+      <label class="setting-row">
+        <span><b>Search engine</b><small>DuckDuckGo is the default.</small></span>
+        <select id="search-select">
+          <option value="duckduckgo">DuckDuckGo</option>
+          <option value="google">Google</option>
+          <option value="bing">Bing</option>
+        </select>
+      </label>
+
+      <div class="note">Changing the proxy engine or transport reloads the current page through the new selection.</div>
+    </aside>
+  </main>
+
+  <script src="/browser.js"></script>
+</body>
+</html>
